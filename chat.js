@@ -1,7 +1,7 @@
 const {OpenAI} = require("openai");
 
 const openai = new OpenAI({
-    apiKey: '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',
+    apiKey: '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',
 });
 
 
@@ -11,7 +11,8 @@ async function ask(prompt) {
             model: "gpt-3.5-turbo",
             messages: prompt,
         });
-        
+        console.log(completion);
+
         let completionArr = [...prompt, completion.choices[0].message];
         return completionArr;
         

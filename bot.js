@@ -25,9 +25,13 @@ let storage = {};
 client.on('message', async message => {
     try {
 
-        if (message.body.startsWith("?")) {
+        if (message.body.startsWith("!")) {
             let prompt = message.body.substring(1);
             let from = message.from;
+
+            if(!storage[from]) {
+                storage[from] = [];
+            }
 
             if(prompt === "clear") {
                 storage[from] = [];
@@ -35,9 +39,6 @@ client.on('message', async message => {
                 return;
             }
             else{
-                if(!storage[from]) {
-                    storage[from] = [];
-                }
 
                 let userMsg = {role: "user", content: prompt};
                 storage[from].push(userMsg);
