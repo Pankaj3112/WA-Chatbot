@@ -1,6 +1,8 @@
 const ask = require('./chat')
 const qrcode = require('qrcode-terminal');
 const { Client,LocalAuth} = require('whatsapp-web.js');
+require('dotenv').config();
+
 
 const client = new Client({
     puppeteer: {
